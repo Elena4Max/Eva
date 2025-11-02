@@ -26,18 +26,18 @@ The application simulates a small point-of-sale interface:
 
 ### Build with qmake
 ```bash
-git clone https://github.com/YourUsername/QtCashRegister.git
-cd QtCashRegister
+git clone https://github.com/YourUsername/Eva.git
+cd Eva
 qmake
 make
-./QtCashRegister
+./Eva
 ```
 
 ### Build with CMake
 ```bash
 cmake -B build .
 cmake --build build
-./build/QtCashRegister
+./build/Eva
 ```
 
 ---
