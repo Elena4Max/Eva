@@ -20,8 +20,8 @@ The application simulates a small point-of-sale interface:
 ## Installation and Dependencies
 
 ### Requirements
-- Qt 6.5.2 or newer
-- C++17 or later
+- Qt 6.0.0 or newer
+- C++11 or later
 - qmake or CMake build system
 
 ### Build with qmake
