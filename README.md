@@ -98,7 +98,7 @@ The program automatically calculates the total amount from the `total` fields an
 ## Project Structure
 
 ```
-QtCashRegister/
+Eva/
 ├── main.cpp
 ├── calculator.h
 ├── calculator.cpp
