@@ -24,22 +24,10 @@ The application simulates a small point-of-sale interface:
 - C++11 or later
 - qmake or CMake build system
 
-### Build with qmake
+### Clone from github
 ```bash
 git clone https://github.com/YourUsername/Eva.git
-cd Eva
-qmake
-make
-./Eva
 ```
-
-### Build with CMake
-```bash
-cmake -B build .
-cmake --build build
-./build/Eva
-```
-
 ---
 
 ## Input Data (JSON file)
