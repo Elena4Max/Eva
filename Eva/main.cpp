@@ -14,32 +14,7 @@
 #include <QRegularExpressionValidator>
 #include <QMessageBox>
 #include "calculator.h"
-
-double readTotalFromJson(const QString &filePath) {
-    QFile file(filePath);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qWarning("Could not open JSON file!");
-        return 0.0;
-    }
-    QByteArray data = file.readAll();
-    file.close();
-
-    QJsonDocument doc = QJsonDocument::fromJson(data);
-    if (!doc.isArray()) {
-        qWarning("Invalid JSON format!");
-        return 0.0;
-    }
-
-    QJsonArray arr = doc.array();
-    double totalSum = 0.0;
-    for (const QJsonValue &value : arr) {
-        if (value.isObject()) {
-            QJsonObject obj = value.toObject();
-            totalSum += obj.value("total").toDouble();
-        }
-    }
-    return totalSum;
-}
+#include "jsonreader.h"
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
@@ -60,7 +35,8 @@ int main(int argc, char *argv[]) {
     QRegularExpression regex(R"(^\d{0,7}(\.\d{0,2})?$)");
     label_customers_amount->setValidator(new QRegularExpressionValidator(regex));
 
-    double totalSum = readTotalFromJson("data.json");
+    JsonReader reader("data.json");
+    double totalSum = reader.readTotalSum();
     label_bill_amount->setText(QString::number(totalSum, 'f', 2));
     label_cash->setText(QString::number(totalSum, 'f', 2));
 
@@ -98,12 +74,9 @@ int main(int argc, char *argv[]) {
         if (rest >= 0) {
             label_rest->setStyleSheet("background-color: lightgreen;");
             yes_button->setEnabled(true);
-        } else if (rest < 0) {
+        } else {
             label_rest->setStyleSheet("background-color: lightcoral;");
             yes_button->setEnabled(false);
-        } else { // ровно 0
-            label_rest->setStyleSheet("");
-            yes_button->setEnabled(true);
         }
     };
 

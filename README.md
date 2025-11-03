@@ -92,8 +92,10 @@ Eva/
 ├── calculator.cpp
 ├── widget.h
 ├── widget.cpp
+├── jsonreader.h
+├── jsonreader.cpp
 ├── data.json
-├── QtCashRegister.pro
+├── Eva.pro
 └── README.md
 ```
 

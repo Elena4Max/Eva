@@ -10,11 +10,13 @@ CONFIG += c++11
 
 SOURCES += \
     calculator.cpp \
+    jsonreader.cpp \
     main.cpp \
     widget.cpp
 
 HEADERS += \
     calculator.h \
+    jsonreader.h \
     widget.h
 
 # Default rules for deployment.
